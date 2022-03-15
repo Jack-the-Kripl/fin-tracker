@@ -1,8 +1,8 @@
 import './Date.css';
 
 function Date(props) {
-    const month = props.date.toLocaleString('cs-CZ', {month: 'long'});
-    const day = props.date.toLocaleString('cs-CZ', {day: '2-digit'});
+    const month = props.date.toLocaleString('en-GB', {month: 'long'});
+    const day = props.date.toLocaleString('en-GB', {day: '2-digit'});
     const year = props.date.getFullYear();
 
     return (
