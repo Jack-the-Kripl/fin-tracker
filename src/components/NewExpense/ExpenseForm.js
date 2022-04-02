@@ -5,6 +5,7 @@ const ExpenseForm = (props) => {
     const [title, setTitle] = useState('');
     const [amount, setAmount] = useState('');
     const [date, setDate] = useState('');
+
     // const [userInput, setUserInput] = useState({
     //     title: "",
     //     amount: "",
@@ -33,17 +34,25 @@ const ExpenseForm = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const expenseData = {
-            title: title,
-            amount: amount,
-            date: new Date(date)
+        if (title === '' || amount === '' || date === '') {
+            alert("Fill the form properly, asshole...");
+        } else {
+            const expenseData = {
+                title: title,
+                amount: amount,
+                date: new Date(date)
+            }
+    
+            props.onSubmit(expenseData);
+            setTitle("");
+            setAmount("");
+            setDate("");
         }
-
-        props.onSubmit(expenseData);
-        setTitle("");
-        setAmount("");
-        setDate("");
     };
+
+    const handleCancel = () => {
+        props.onCancel();
+    }
 
     return (
         <form onSubmit={handleSubmit}>
@@ -60,9 +69,10 @@ const ExpenseForm = (props) => {
                     <label>Date</label>
                     <input type="date" value={date} onChange={handleChangeDate} min='2019-01-01' max='2022-12-31' />
                 </div>
-                <div className="new-expense__actions">
-                    <button type="submit">Add Expense</button>
-                </div>
+            </div>
+            <div className="new-expense__actions">
+                <button type="submit">Add Expense</button>
+                <button type='button' onClick={handleCancel} >Cancel</button>
             </div>
         </form>
     );
