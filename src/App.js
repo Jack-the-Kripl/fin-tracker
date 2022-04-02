@@ -7,7 +7,7 @@ import { scryRenderedComponentsWithType } from 'react-dom/test-utils';
 const dummyExpenses = [
   { title: 'Rent', amount: 4500, date: new Date(2021, 5, 12), id: '1' },
   { title: 'Booze', amount: 6000, date: new Date(2022, 2, 22), id: '2' },
-  { title: 'Hoes', amount: 99999, date: new Date(2022, 1, 1), id: '3' },
+  { title: 'Hoes', amount: 3000, date: new Date(2022, 1, 1), id: '3' },
   { title: 'Food', amount: 16.99, date: new Date(2022, 3, 15), id: '4' }
 ];
 
